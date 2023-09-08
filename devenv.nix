@@ -8,6 +8,7 @@
   packages = [
     pkgs.python311
     pkgs.python311Packages.pip-tools
+    pkgs.poetry
   ];
 
   # Set any environment variables here.

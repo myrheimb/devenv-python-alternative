@@ -10,7 +10,7 @@ help:
 .PHONY: lock
 # Lock version pins for Python dependencies.
 lock:
-	@pip-compile --resolver=backtracking --upgrade -o requirements.txt
+	@poetry lock && poetry export --format=requirements.txt --output=requirements.txt
 
 .PHONY: sync
 # Install pinned Python packages and uninstall any other packages.
@@ -18,9 +18,9 @@ sync:
 	@pip-sync --python-executable .venv/bin/python requirements.txt
 
 .PHONY: clean
-# Remove the .devenv, .direnv, and .venv folders.
+# Remove the .devenv, devenv_python.egg-info, .direnv, and .venv folders.
 clean:
-	@rm -rf .devenv .direnv .venv
+	@rm -rf .devenv devenv_python.egg-info .direnv .venv
 	@direnv reload
 
 .PHONY: gc
