@@ -14,7 +14,7 @@ Devenv will then automatically take care of setting up everything as [Nix deriva
 This project will be completely isolated and not make any global changes, even if you just want to try out a new package with `pip install`.
 
 ### Update python dependencies
-To update or add new Python dependencies, simply add them to the `requirements.in` file, either with an unspecified version, e.g. `black`, or with a specified version, e.g. `black==23.7.0`.
+To update or add new Python dependencies, simply add them to the `[tool.poetry.dependencies]` section in the `pyproject.toml` file, either with an unspecified version, e.g. `black = "*"`, or with a specified version, e.g. `black = "23.7.0"`.
 You can then run `make lock` to have pip-compile sort out the dependencies in `requirements.txt`.
 Finally, run `make sync` to have pip-sync install or uninstall any new or obsolete packages.
 
